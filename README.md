@@ -1,4 +1,4 @@
-# khurapati_ideas
+Flutter Starter Project
 
 A new Flutter project.
 
