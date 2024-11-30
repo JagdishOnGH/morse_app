@@ -27,10 +27,19 @@ class _EncoderPageState extends State<EncoderPage> {
           padding: const EdgeInsets.all(8.0),
           child: ListView(
             children: [
-              Text("Some characters may not be supported.."),
               //outlined textbox
 
               SizedBox(height: 80),
+              Text("Decoded text appears below..."),
+              Text(_encodedController.text,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900)),
+              SizedBox(
+                height: 50,
+              ),
+              Text("Some characters may not be supported ⓘ"),
+              SizedBox(
+                height: 5,
+              ),
               TextFormField(
                 controller: _toEncodeController,
                 inputFormatters: [
@@ -39,29 +48,23 @@ class _EncoderPageState extends State<EncoderPage> {
                   ),
                 ],
                 maxLines: 6,
-                minLines: 2,
+                minLines: 1,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelStyle: TextStyle(
                     color: Colors.black,
                   ),
-                  labelText: 'Enter text to encode',
+                  hintText: "Enter text to encode...",
                 ),
               ),
 
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.only(left: 10.0),
                 child: Wrap(
                   crossAxisAlignment: WrapCrossAlignment.end,
                   alignment: WrapAlignment.start,
                   spacing: 15,
                   children: [
-                    // CircleAvatar(
-                    //   child: Icon(Icons.copy),
-                    // ),
-                    // Chip(
-                    //   label: Text("Space"),
-                    // ),
                     InkWell(
                       onTap: () {
                         _toEncodeController.text += '   ';
@@ -75,22 +78,7 @@ class _EncoderPageState extends State<EncoderPage> {
               ),
 
               SizedBox(height: 50),
-              if (isEndcodedTextBoxNotEmpty)
-                TextField(
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
-                  controller: _encodedController,
-                  maxLines: 5,
-                  enabled: false,
-                  minLines: 1,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
+
               //sb-50
               SizedBox(
                 height: 20,
@@ -103,12 +91,20 @@ class _EncoderPageState extends State<EncoderPage> {
                   SizedBox(
                     width: width * 0.7,
                     child: FilledButton(
-                      onPressed: () {
+                      onPressed: () async {
                         final toEncode = _toEncodeController.text;
-                        if (toEncode.isNotEmpty) {
+                        final toBeEncode = toEncode.trim();
+                        if (toBeEncode.isEmpty) {
+                          await Fluttertoast.showToast(
+                              msg: "Spaces or empty text not allowed",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIosWeb: 1,
+                              fontSize: 16.0); // encode the text
+                          return;
+                        }
+                        if (toBeEncode.isNotEmpty) {
                           final encoded = encodeToMorse(toEncode);
-                          // encode the text
-                          print(encoded);
                           _encodedController.text = encoded;
                         }
                       },
@@ -118,8 +114,8 @@ class _EncoderPageState extends State<EncoderPage> {
                   if (isEndcodedTextBoxNotEmpty)
                     SizedBox(
                       width: width * 0.2,
-                      child: FilledButton.icon(
-                        onPressed: () async {
+                      child: InkWell(
+                        onTap: () async {
                           Clipboard.setData(
                             ClipboardData(text: _encodedController.text),
                           );
@@ -129,9 +125,12 @@ class _EncoderPageState extends State<EncoderPage> {
                               toastLength: Toast.LENGTH_SHORT,
                               gravity: ToastGravity.BOTTOM,
                               timeInSecForIosWeb: 1,
-                              fontSize: 16.0); // encode the text
+                              fontSize: 16.0);
                         },
-                        label: Icon(Icons.copy),
+                        child: CircleAvatar(
+                          backgroundColor: Colors.deepPurple.shade200,
+                          child: Icon(Icons.copy),
+                        ),
                       ),
                     ),
                 ],
