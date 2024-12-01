@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'chat_ui.dart';
-import 'chat_ui_from_morse.dart';
+import 'decode_page.dart';
+import 'encode_page.dart';
 
 class EntryPointPage extends StatefulWidget {
   const EntryPointPage({super.key});
@@ -11,8 +11,8 @@ class EntryPointPage extends StatefulWidget {
 }
 
 final List<Widget> screens = [
-  ChatUI(),
-  ChatUIFromMorse(),
+  EncodePage(),
+  DecodePage(),
 ];
 
 class _EntryPointPageState extends State<EntryPointPage> {
@@ -23,8 +23,12 @@ class _EntryPointPageState extends State<EntryPointPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Convert Morse Code...'),
+        backgroundColor: Colors.deepPurple.shade100,
       ),
-      body: screens[currentIndex],
+      body: IndexedStack(
+        children: screens,
+        index: currentIndex,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
