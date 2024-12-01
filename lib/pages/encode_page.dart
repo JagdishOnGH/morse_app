@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:khurapati_ideas/feature/encode_decode/core_logic.dart';
 
-import '../shared/encoding_logic.dart';
-
-class ChatUI extends StatefulWidget {
-  ChatUI({super.key});
+class EncodePage extends StatefulWidget {
+  EncodePage({super.key});
 
   @override
-  State<ChatUI> createState() => _ChatUIState();
+  State<EncodePage> createState() => _EncodePageState();
 }
 
-class _ChatUIState extends State<ChatUI> with AutomaticKeepAliveClientMixin {
+class _EncodePageState extends State<EncodePage>
+    with AutomaticKeepAliveClientMixin {
   final List<MyMessage> messages = [];
   final TextEditingController _controller = TextEditingController();
   late ScrollController _scrollController;
+  final coreLogic = EncodeDecodeCoreLogic();
 
   @override
   void initState() {
@@ -60,37 +62,37 @@ class _ChatUIState extends State<ChatUI> with AutomaticKeepAliveClientMixin {
                               child: Text(
                                 textAlign: TextAlign.right,
                                 messages[index].message,
-                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 5,
                               ))
-                          : InkWell(
-                              onLongPress: () {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                        "Copied to clipboard: ${messages[index].message}"),
-                                  ),
-                                );
-                                Clipboard.setData(
-                                  ClipboardData(
-                                    text: messages[index].message,
-                                  ),
-                                );
-                              },
-                              child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.deepPurple.withOpacity(0.2),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
+                          : Container(
+                              decoration: BoxDecoration(
+                                color: Colors.deepPurple.withOpacity(0.2),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
 
-                                  //margin only right 30
-                                  margin: const EdgeInsets.only(
-                                      bottom: 20, top: 20, left: 10, right: 30),
-                                  padding: const EdgeInsets.all(8),
-                                  child: Text(
-                                    textAlign: TextAlign.right,
-                                    messages[index].message,
-                                    maxLines: 3,
-                                  ))),
+                              //margin only right 30
+                              margin: const EdgeInsets.only(
+                                  bottom: 20, top: 20, left: 10, right: 30),
+                              padding: const EdgeInsets.all(8),
+                              child: InkWell(
+                                onLongPress: () {
+                                  Fluttertoast.showToast(
+                                      msg: "Copied",
+                                      gravity: ToastGravity.CENTER);
+                                  Clipboard.setData(
+                                    ClipboardData(
+                                      text: messages[index].message,
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  textAlign: TextAlign.right,
+                                  messages[index].message,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 7,
+                                ),
+                              )),
                     );
                   },
                 ),
@@ -125,7 +127,7 @@ class _ChatUIState extends State<ChatUI> with AutomaticKeepAliveClientMixin {
                         messages.add(
                             MyMessage(message: _controller.text, isMe: true));
 
-                        final resp = encodeToMorse(_controller.text);
+                        final resp = coreLogic.encodeToMorse(_controller.text);
                         messages.add(MyMessage(message: resp, isMe: false));
                         _controller.clear();
                         if (_scrollController.hasClients) {

@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
-import '../shared/encoding_logic.dart';
-import 'chat_ui.dart';
+import '../feature/encode_decode/core_logic.dart';
+import 'encode_page.dart';
 
-class ChatUIFromMorse extends StatefulWidget {
-  ChatUIFromMorse({super.key});
+class DecodePage extends StatefulWidget {
+  DecodePage({super.key});
 
   @override
-  State<ChatUIFromMorse> createState() => _ChatUIState();
+  State<DecodePage> createState() => _ChatUIState();
 }
 
-class _ChatUIState extends State<ChatUIFromMorse>
+class _ChatUIState extends State<DecodePage>
     with AutomaticKeepAliveClientMixin {
   @override
   void initState() {
@@ -22,6 +23,7 @@ class _ChatUIState extends State<ChatUIFromMorse>
   final List<MyMessage> messages = [];
   final TextEditingController _controller = TextEditingController();
   late ScrollController _scrollController;
+  final coreLogic = EncodeDecodeCoreLogic();
 
   @override
   Widget build(BuildContext context) {
@@ -56,43 +58,41 @@ class _ChatUIState extends State<ChatUIFromMorse>
                               ),
 
                               //margin only right 30
-                              margin:
-                                  const EdgeInsets.only(left: 30, right: 10),
+                              margin: const EdgeInsets.only(
+                                  left: 30, right: 10, top: 20),
                               padding: const EdgeInsets.all(8),
                               child: Text(
                                 textAlign: TextAlign.right,
                                 messages[index].message,
                                 maxLines: 3,
                               ))
-                          : InkWell(
-                              onLongPress: () {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                        "Copied to clipboard: ${messages[index].message}"),
-                                  ),
-                                );
-                                Clipboard.setData(
-                                  ClipboardData(
-                                    text: messages[index].message,
-                                  ),
-                                );
-                              },
-                              child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.deepPurple.withOpacity(0.2),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
+                          : Container(
+                              decoration: BoxDecoration(
+                                color: Colors.deepPurple.withOpacity(0.2),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
 
-                                  //margin only right 30
-                                  margin: const EdgeInsets.only(
-                                      bottom: 20, top: 20, left: 10, right: 30),
-                                  padding: const EdgeInsets.all(8),
-                                  child: Text(
-                                    textAlign: TextAlign.right,
-                                    messages[index].message,
-                                    maxLines: 3,
-                                  ))),
+                              //margin only right 30
+                              margin: const EdgeInsets.only(
+                                  bottom: 20, top: 20, left: 10, right: 30),
+                              padding: const EdgeInsets.all(8),
+                              child: InkWell(
+                                onLongPress: () {
+                                  Fluttertoast.showToast(
+                                      msg: "Copied",
+                                      gravity: ToastGravity.CENTER);
+                                  Clipboard.setData(
+                                    ClipboardData(
+                                      text: messages[index].message,
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  textAlign: TextAlign.right,
+                                  messages[index].message,
+                                  maxLines: 3,
+                                ),
+                              )),
                     );
                   },
                 ),
@@ -119,7 +119,7 @@ class _ChatUIState extends State<ChatUIFromMorse>
                       messages.add(
                           MyMessage(message: _controller.text, isMe: true));
 
-                      final resp = decodeMorse(_controller.text);
+                      final resp = coreLogic.decodeMorse(_controller.text);
                       messages.add(MyMessage(message: resp, isMe: false));
                       _controller.clear();
                       if (_scrollController.hasClients) {
