@@ -44,6 +44,8 @@ class _EntryPointPageState extends State<EntryPointPage> {
             icon: Icon(Icons.code_off),
             label: 'Decode',
           ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle), label: 'Profile'),
         ],
         currentIndex: currentIndex,
         selectedItemColor: Colors.deepPurple,
