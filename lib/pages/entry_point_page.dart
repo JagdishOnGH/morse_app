@@ -24,10 +24,6 @@ class _EntryPointPageState extends State<EntryPointPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Convert Morse Code...'),
-        backgroundColor: Colors.deepPurple.shade100,
-      ),
       body: IndexedStack(
         children: screens,
         index: currentIndex,
