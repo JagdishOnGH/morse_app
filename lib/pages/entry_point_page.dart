@@ -15,6 +15,7 @@ final List<Widget> screens = [
   LearnPage(),
   EncodePage(),
   DecodePage(),
+  Center(child: Text('Coming soon... 4')),
 ];
 
 class _EntryPointPageState extends State<EntryPointPage> {
@@ -32,6 +33,8 @@ class _EntryPointPageState extends State<EntryPointPage> {
         index: currentIndex,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        enableFeedback: false,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.book),
