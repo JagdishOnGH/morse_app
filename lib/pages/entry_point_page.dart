@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../feature/learn/pages/learn_page.dart';
 import 'decode_page.dart';
 import 'encode_page.dart';
 
@@ -11,6 +12,7 @@ class EntryPointPage extends StatefulWidget {
 }
 
 final List<Widget> screens = [
+  LearnPage(),
   EncodePage(),
   DecodePage(),
 ];
