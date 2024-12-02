@@ -34,6 +34,10 @@ class _EntryPointPageState extends State<EntryPointPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+            icon: Icon(Icons.book),
+            label: 'Learn',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.code),
             label: 'Encode',
           ),
