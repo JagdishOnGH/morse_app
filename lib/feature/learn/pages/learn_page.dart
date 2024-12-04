@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:khurapati_ideas/feature/learn/components/learning_options_comp.dart';
+
+import 'learning_page.dart';
 
 class LearnPage extends StatelessWidget {
   const LearnPage({super.key});
@@ -11,7 +11,7 @@ class LearnPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurple.shade100,
-        title: Text("Learn morse"),
+        title: Text("Learn Morse Code"),
       ),
       body: Container(
         margin: EdgeInsets.only(top: 20, left: 20, right: 20),
