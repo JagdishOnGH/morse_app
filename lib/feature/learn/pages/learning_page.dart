@@ -82,3 +82,32 @@ class LearningPage extends StatelessWidget {
     );
   }
 }
+
+var morseCodeDataAlphabet = [
+  {"letter": "A", "morse": ".-", "pronounced": "Di-Dah"},
+  {"letter": "B", "morse": "-...", "pronounced": "Dah-Di-Di-Dit"},
+  {"letter": "C", "morse": "-.-.", "pronounced": "Dah-Di-Dah-Dit"},
+  {"letter": "D", "morse": "-..", "pronounced": "Dah-Di-Dit"},
+  {"letter": "E", "morse": ".", "pronounced": "Dit"},
+  {"letter": "F", "morse": "..-.", "pronounced": "Di-Di-Dah-Dit"},
+  {"letter": "G", "morse": "--.", "pronounced": "Dah-Dah-Dit"},
+  {"letter": "H", "morse": "....", "pronounced": "Di-Di-Di-Dit"},
+  {"letter": "I", "morse": "..", "pronounced": "Di-Dit"},
+  {"letter": "J", "morse": ".---", "pronounced": "Di-Dah-Dah-Dah"},
+  {"letter": "K", "morse": "-.-", "pronounced": "Dah-Di-Dah"},
+  {"letter": "L", "morse": ".-..", "pronounced": "Di-Dah-Di-Dit"},
+  {"letter": "M", "morse": "--", "pronounced": "Dah-Dah"},
+  {"letter": "N", "morse": "-.", "pronounced": "Dah-Dit"},
+  {"letter": "O", "morse": "---", "pronounced": "Dah-Dah-Dah"},
+  {"letter": "P", "morse": ".--.", "pronounced": "Di-Dah-Dah-Dit"},
+  {"letter": "Q", "morse": "--.-", "pronounced": "Dah-Dah-Di-Dah"},
+  {"letter": "R", "morse": ".-.", "pronounced": "Di-Dah-Dit"},
+  {"letter": "S", "morse": "...", "pronounced": "Di-Di-Dit"},
+  {"letter": "T", "morse": "-", "pronounced": "Dah"},
+  {"letter": "U", "morse": "..-", "pronounced": "Di-Di-Dah"},
+  {"letter": "V", "morse": "...-", "pronounced": "Di-Di-Di-Dah"},
+  {"letter": "W", "morse": ".--", "pronounced": "Di-Dah-Dah"},
+  {"letter": "X", "morse": "-..-", "pronounced": "Dah-Di-Di-Dah"},
+  {"letter": "Y", "morse": "-.--", "pronounced": "Dah-Di-Dah-Dah"},
+  {"letter": "Z", "morse": "--..", "pronounced": "Dah-Dah-Di-Dit"}
+];
