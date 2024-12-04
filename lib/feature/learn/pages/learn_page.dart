@@ -50,13 +50,88 @@ class LearnPage extends StatelessWidget {
                   LetterHead("D", context),
                 ],
               ),
-              title: "Quizzes",
-              colorIndex: 1,
-            ),
-            SizedBox(
-              height: 20,
-            ),
-          ],
+              SizedBox(height: 20),
+              Divider(),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Morse To Numbers",
+                      style:
+                          ts.titleLarge?.copyWith(fontWeight: FontWeight.w600)),
+                  InkWell(onTap: () {}, child: Icon(Icons.arrow_forward))
+                ],
+              ),
+              SizedBox(height: 3),
+              //small information text:
+              Text(
+                "Learn the numbers and their mapping to morse code. Step by step learning.",
+                style: ts.bodySmall,
+              ),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  LetterHead("1", context),
+                  LetterHead("2", context),
+                  LetterHead("3", context),
+                  LetterHead("4", context),
+                ],
+              ),
+              SizedBox(height: 20),
+              Divider(),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Morse To Symbols",
+                      style:
+                          ts.titleLarge?.copyWith(fontWeight: FontWeight.w600)),
+                  InkWell(onTap: () {}, child: Icon(Icons.arrow_forward))
+                ],
+              ),
+              SizedBox(height: 3),
+              //small information text:
+              Text(
+                "Learn the symbols and their mapping to morse code. Step by step learning.",
+                style: ts.bodySmall,
+              ),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  LetterHead("_", context),
+                  LetterHead("?", context),
+                  LetterHead("#", context),
+                  LetterHead("\$", context),
+                ],
+              ),
+              SizedBox(height: 20),
+              Divider(),
+            ],
+          )),
+    );
+  }
+
+  // a sqaured shape custom wid that accepts a letter and  provide big letter with fs:30 and fw:w800
+  Widget LetterHead(final String title, BuildContext ctx) {
+    final ts = Theme.of(ctx).textTheme;
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.deepPurple.shade200,
+      ),
+      width: 80,
+      height: 80,
+      child: Center(
+        child: Hero(
+          tag: title,
+          child: Text(
+            title,
+            style: ts.titleLarge?.copyWith(fontWeight: FontWeight.w800),
+          ),
         ),
       ),
     );
