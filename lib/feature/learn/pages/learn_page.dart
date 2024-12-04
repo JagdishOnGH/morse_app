@@ -14,24 +14,41 @@ class LearnPage extends StatelessWidget {
         title: Text("Learn Morse Code"),
       ),
       body: Container(
-        margin: EdgeInsets.only(top: 20, left: 20, right: 20),
-        child: StaggeredGrid.count(
-          crossAxisCount: 2,
-          children: [
-            LearningOptionsComp(
-              firstWidget: Text(
-                "AB\n●-●-",
-                style: ts.headlineLarge?.copyWith(
-                    color: Colors.white, fontWeight: FontWeight.w900),
+          margin: EdgeInsets.only(top: 20, left: 20, right: 10),
+          child: ListView(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Morse To Alphabets",
+                      style:
+                          ts.titleLarge?.copyWith(fontWeight: FontWeight.w600)),
+                  InkWell(
+                      onTap: () {
+                        // goto learning page
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (ctx) {
+                          return LearningPage();
+                        }));
+                      },
+                      child: Icon(Icons.arrow_forward))
+                ],
               ),
-              title: "Letter Mapping",
-              colorIndex: 1,
-            ),
-            LearningOptionsComp(
-              firstWidget: Text(
-                "Q",
-                style: ts.headlineLarge?.copyWith(
-                    color: Colors.white, fontWeight: FontWeight.w900),
+              SizedBox(height: 3),
+              //small information text:
+              Text(
+                "Learn the alphabets and their mapping to morse code. Step by step learning.",
+                style: ts.bodySmall,
+              ),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  LetterHead("A", context),
+                  LetterHead("B", context),
+                  LetterHead("C", context),
+                  LetterHead("D", context),
+                ],
               ),
               title: "Quizzes",
               colorIndex: 1,
