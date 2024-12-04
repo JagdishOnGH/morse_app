@@ -6,47 +6,14 @@ class LearningPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: DragAndDropDemo(),
-    );
-  }
-}
-
-class DragAndDropDemo extends StatefulWidget {
-  @override
-  _DragAndDropDemoState createState() => _DragAndDropDemoState();
-}
-
-class _DragAndDropDemoState extends State<DragAndDropDemo> {
-  bool isChipDropped = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Drag and Drop Demo")),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Draggable Chip
-          if (!isChipDropped)
-            Draggable<String>(
-              data: "Chip Data",
-              feedback: Material(
-                child: Chip(
-                  label: Text("Drag me1"),
-                  backgroundColor: Colors.blue,
-                ),
-              ),
-              childWhenDragging: Opacity(
-                opacity: 0.5,
-                child: Chip(
-                  label: Text("Drag me"),
-                  backgroundColor: Colors.blue,
-                ),
-              ),
-              child: Chip(
-                label: Text("Drag me"),
-                backgroundColor: Colors.blue,
-              ),
+          Container(
+            alignment: Alignment.center,
+            height: 200,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Colors.deepPurple.shade100,
             ),
           SizedBox(height: 50),
 
