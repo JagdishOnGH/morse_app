@@ -1,5 +1,43 @@
 import 'package:flutter/material.dart';
 
+enum LearningType { Alphabet, Number, Symbol }
+
+String getLearningTypeString(LearningType type) {
+  switch (type) {
+    case LearningType.Alphabet:
+      return "Alphabets";
+    case LearningType.Number:
+      return "Numbers";
+    case LearningType.Symbol:
+      return "Symbols";
+  }
+}
+
+String get1LineDescription(LearningType type) {
+  switch (type) {
+    case LearningType.Alphabet:
+      return "Learn the alphabets and their mapping to morse code. Step by step learning.";
+    case LearningType.Number:
+      return "Learn the numbers and their mapping to morse code. Step by step learning.";
+    case LearningType.Symbol:
+      return "Learn the symbols and their mapping to morse code. Step by step learning.";
+  }
+}
+
+Map<String, String> getMorseCodeData(LearningType type, String letter) {
+  switch (type) {
+    case LearningType.Alphabet:
+      return morseCodeDataAlphabet
+          .firstWhere((element) => element["letter"] == letter);
+    case LearningType.Number:
+      return morseCodeDataNumbers
+          .firstWhere((element) => element["letter"] == letter);
+    case LearningType.Symbol:
+      return morseCodeDataSymbols
+          .firstWhere((element) => element["letter"] == letter);
+  }
+}
+
 class LearningPage extends StatelessWidget {
   const LearningPage({super.key});
 
