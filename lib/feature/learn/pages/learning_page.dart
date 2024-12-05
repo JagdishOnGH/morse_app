@@ -39,10 +39,14 @@ Map<String, String> getMorseCodeData(LearningType type, String letter) {
 }
 
 class LearningPage extends StatelessWidget {
-  const LearningPage({super.key});
+  final LearningType type;
+  final String letter;
+
+  const LearningPage({super.key, required this.letter, required this.type});
 
   @override
   Widget build(BuildContext context) {
+    final myData = getMorseCodeData(type, letter);
     return Scaffold(
       body: Column(
         children: [
