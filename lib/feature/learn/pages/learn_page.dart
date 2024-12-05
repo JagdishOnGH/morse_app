@@ -7,6 +7,9 @@ class LearnPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final alphaPrev = morseCodeDataAlphabet.sublist(0, 4);
+    final numPrev = morseCodeDataNumbers.sublist(0, 4);
+    final symPrev = morseCodeDataSymbols.sublist(0, 4);
     final ts = Theme.of(context).textTheme;
     return Scaffold(
       appBar: AppBar(
