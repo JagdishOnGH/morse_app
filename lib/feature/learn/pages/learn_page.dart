@@ -67,7 +67,17 @@ class LearnPage extends StatelessWidget {
                   Text("Morse To Numbers",
                       style:
                           ts.titleLarge?.copyWith(fontWeight: FontWeight.w600)),
-                  InkWell(onTap: () {}, child: Icon(Icons.arrow_forward))
+                  InkWell(
+                      onTap: () {
+                        // goto learning page
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (ctx) {
+                          return AllLearningPage(
+                              title: "Morse To Numbers",
+                              type: LearningType.Number);
+                        }));
+                      },
+                      child: Icon(Icons.arrow_forward))
                 ],
               ),
               SizedBox(height: 3),
@@ -95,7 +105,17 @@ class LearnPage extends StatelessWidget {
                   Text("Morse To Symbols",
                       style:
                           ts.titleLarge?.copyWith(fontWeight: FontWeight.w600)),
-                  InkWell(onTap: () {}, child: Icon(Icons.arrow_forward))
+                  InkWell(
+                      onTap: () {
+                        // goto learning page
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (ctx) {
+                          return AllLearningPage(
+                              title: "Morse To Numbers",
+                              type: LearningType.Symbol);
+                        }));
+                      },
+                      child: Icon(Icons.arrow_forward))
                 ],
               ),
               SizedBox(height: 3),
