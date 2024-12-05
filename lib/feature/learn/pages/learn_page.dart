@@ -32,7 +32,9 @@ class LearnPage extends StatelessWidget {
                         // goto learning page
                         Navigator.push(context,
                             MaterialPageRoute(builder: (ctx) {
-                          return LearningPage();
+                          return AllLearningPage(
+                              title: "Morse To Alphabets",
+                              type: LearningType.Alphabet);
                         }));
                       },
                       child: Icon(Icons.arrow_forward))
@@ -47,12 +49,12 @@ class LearnPage extends StatelessWidget {
               SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  LetterHead("A", context),
-                  LetterHead("B", context),
-                  LetterHead("C", context),
-                  LetterHead("D", context),
-                ],
+                children: alphaPrev
+                    .map((e) => LetterHead(
+                          e["letter"] as String,
+                          context,
+                        ))
+                    .toList(),
               ),
               SizedBox(height: 20),
               Divider(),
@@ -77,12 +79,12 @@ class LearnPage extends StatelessWidget {
               SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  LetterHead("1", context),
-                  LetterHead("2", context),
-                  LetterHead("3", context),
-                  LetterHead("4", context),
-                ],
+                children: numPrev
+                    .map((e) => LetterHead(
+                          e["letter"] as String,
+                          context,
+                        ))
+                    .toList(),
               ),
               SizedBox(height: 20),
               Divider(),
@@ -105,12 +107,12 @@ class LearnPage extends StatelessWidget {
               SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  LetterHead("_", context),
-                  LetterHead("?", context),
-                  LetterHead("#", context),
-                  LetterHead("\$", context),
-                ],
+                children: symPrev
+                    .map((e) => LetterHead(
+                          e["letter"] as String,
+                          context,
+                        ))
+                    .toList(),
               ),
               SizedBox(height: 20),
               Divider(),
