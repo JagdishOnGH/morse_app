@@ -145,6 +145,7 @@ class LearnPage extends StatelessWidget {
   Widget LetterHead(final String title, BuildContext ctx) {
     final ts = Theme.of(ctx).textTheme;
     return Container(
+      margin: EdgeInsets.all(5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Colors.deepPurple.shade200,
