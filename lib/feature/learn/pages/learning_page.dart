@@ -79,7 +79,7 @@ class LearningPage extends StatelessWidget {
                         color: Colors.deepPurple)),
                 SizedBox(width: 40),
                 Chip(
-                  label: Text(".-",
+                  label: Text(myData["morse"] as String,
                       style: Theme.of(context)
                           .textTheme
                           .headlineMedium
@@ -102,8 +102,14 @@ class LearningPage extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         color: Colors.deepPurple)),
                 SizedBox(width: 40),
-                Chip(
-                  label: Text("Di-Dah",
+                Container(
+                  width: 150,
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.deepPurple.shade100,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text(myData["pronounced"] as String,
                       style: Theme.of(context)
                           .textTheme
                           .headlineSmall
