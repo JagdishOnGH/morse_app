@@ -131,6 +131,40 @@ class LearningPage extends StatelessWidget {
   }
 }
 
+var morseCodeDataNumbers = [
+  {"letter": "0", "morse": "-----", "pronounced": "dah-dah-dah-dah-dah"},
+  {"letter": "1", "morse": ".----", "pronounced": "di-dah-dah-dah-dah"},
+  {"letter": "2", "morse": "..---", "pronounced": "di-di-dah-dah-dah"},
+  {"letter": "3", "morse": "...--", "pronounced": "di-di-di-dah-dah"},
+  {"letter": "4", "morse": "....-", "pronounced": "di-di-di-di-dah"},
+  {"letter": "5", "morse": ".....", "pronounced": "di-di-di-di-dit"},
+  {"letter": "6", "morse": "-....", "pronounced": "dah-di-di-di-dit"},
+  {"letter": "7", "morse": "--...", "pronounced": "dah-dah-di-di-dit"},
+  {"letter": "8", "morse": "---..", "pronounced": "dah-dah-dah-di-dit"},
+  {"letter": "9", "morse": "----.", "pronounced": "dah-dah-dah-dah-dit"}
+];
+
+var morseCodeDataSymbols = [
+  {"letter": "_", "morse": "..--.-", "pronounced": "di-di-dah-dah-di-dah"},
+  {"letter": "\"", "morse": ".-..-.", "pronounced": "di-dah-di-di-dah-dit"},
+  {"letter": "\$", "morse": "...-..-", "pronounced": "di-di-di-dah-di-di-dah"},
+  {"letter": "@", "morse": ".--.-.", "pronounced": "di-dah-dah-di-dah-dit"},
+  {"letter": ".", "morse": ".-.-.-", "pronounced": "di-dah-di-dah-di-dah"},
+  {"letter": ",", "morse": "--..--", "pronounced": "dah-dah-di-di-dah-dah"},
+  {"letter": "?", "morse": "..--..", "pronounced": "di-di-dah-dah-di-di"},
+  {"letter": "'", "morse": ".----.", "pronounced": "di-dah-dah-dah-dah-dit"},
+  {"letter": "!", "morse": "-.-.--", "pronounced": "dah-di-dah-di-dah-dah"},
+  {"letter": "/", "morse": "-..-.", "pronounced": "dah-di-di-dah-dit"},
+  {"letter": "(", "morse": "-.--.", "pronounced": "dah-dah-di-dah-dit"},
+  {"letter": ")", "morse": "-.--.-", "pronounced": "dah-dah-di-dah-dah"},
+  {"letter": "&", "morse": ".-...", "pronounced": "di-dah-di-di-dit"},
+  {"letter": ":", "morse": "---...", "pronounced": "dah-dah-dah-di-di-di"},
+  {"letter": ";", "morse": "-.-.-.", "pronounced": "dah-di-dah-di-dah-dit"},
+  {"letter": "=", "morse": "-...-", "pronounced": "dah-di-di-di-dah"},
+  {"letter": "+", "morse": ".-.-.", "pronounced": "di-dah-di-dah-dit"},
+  {"letter": "-", "morse": "-....-", "pronounced": "dah-di-di-di-di-dah"},
+];
+
 var morseCodeDataAlphabet = [
   {"letter": "A", "morse": ".-", "pronounced": "Di-Dah"},
   {"letter": "B", "morse": "-...", "pronounced": "Dah-Di-Di-Dit"},
