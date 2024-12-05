@@ -58,9 +58,9 @@ class LearningPage extends StatelessWidget {
               color: Colors.deepPurple.shade100,
             ),
             child: Hero(
-              tag: "alphabets",
+              tag: getLearningTypeString(type) + letter,
               child: Text(
-                "A",
+                myData["letter"] as String,
                 style: TextStyle(fontWeight: FontWeight.w800, fontSize: 100),
               ),
             ),
