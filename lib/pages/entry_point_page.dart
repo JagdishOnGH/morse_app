@@ -16,7 +16,7 @@ final List<Widget> screens = [
   LearnPage(),
   EncodePage(),
   DecodePage(),
-  Center(child: Text('Coming soon... 4')),
+  ProfilePage(),
 ];
 
 class _EntryPointPageState extends State<EntryPointPage> {
