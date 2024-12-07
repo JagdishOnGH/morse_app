@@ -160,7 +160,8 @@ class LearnPage extends StatelessWidget {
           tag: title,
           child: Text(
             title,
-            style: ts.titleLarge?.copyWith(fontWeight: FontWeight.w800),
+            style: ts.titleLarge
+                ?.copyWith(fontWeight: FontWeight.w800, color: Colors.black54),
           ),
         ),
       ),
