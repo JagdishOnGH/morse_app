@@ -25,8 +25,9 @@ class LearnPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("Morse To Alphabets",
-                      style:
-                          ts.titleLarge?.copyWith(fontWeight: FontWeight.w600)),
+                      style: ts.titleLarge?.copyWith(
+                          fontWeight: FontWeight.w600,
+                          color: Colors.grey.shade800)),
                   InkWell(
                       onTap: () {
                         // goto learning page
