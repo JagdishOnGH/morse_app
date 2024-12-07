@@ -114,7 +114,7 @@ class LearnPage extends StatelessWidget {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (ctx) {
                           return AllLearningPage(
-                              title: "Morse To Numbers",
+                              title: "Morse To Symbols",
                               type: LearningType.Symbol);
                         }));
                       },
