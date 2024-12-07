@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khurapati_ideas/feature/profile/pages/profile_page.dart';
 
 import '../feature/learn/pages/learn_page.dart';
 import 'decode_page.dart';
