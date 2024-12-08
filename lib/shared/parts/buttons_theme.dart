@@ -2,3 +2,15 @@ import 'package:flutter/material.dart';
 
 FilledButtonThemeData filledButtonTheme =
     FilledButtonThemeData(style: ElevatedButton.styleFrom());
+
+
+/////////
+
+........AppBar
+
+j
+    k
+k
+
+    j
+j
