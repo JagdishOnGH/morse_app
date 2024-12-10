@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:khurapati_ideas/pages/entry_point_page.dart';
 
+import 'core/di/get_it_setup.dart';
+
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  slSetup();
   runApp(const MyApp());
 }
 
