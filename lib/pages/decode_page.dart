@@ -12,8 +12,7 @@ class DecodePage extends StatefulWidget {
   State<DecodePage> createState() => _ChatUIState();
 }
 
-class _ChatUIState extends State<DecodePage>
-    with AutomaticKeepAliveClientMixin {
+class _ChatUIState extends State<DecodePage> with AutomaticKeepAliveClientMixin {
   @override
   void initState() {
     _scrollController = ScrollController();
@@ -147,6 +146,13 @@ class _ChatUIState extends State<DecodePage>
         )
       ],
     ));
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override

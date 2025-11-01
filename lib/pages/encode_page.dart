@@ -10,8 +10,7 @@ class EncodePage extends StatefulWidget {
   State<EncodePage> createState() => _EncodePageState();
 }
 
-class _EncodePageState extends State<EncodePage>
-    with AutomaticKeepAliveClientMixin {
+class _EncodePageState extends State<EncodePage> with AutomaticKeepAliveClientMixin {
   final List<MyMessage> messages = [];
   final TextEditingController _controller = TextEditingController();
   late ScrollController _scrollController;
@@ -155,6 +154,13 @@ class _EncodePageState extends State<EncodePage>
         )
       ],
     ));
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
